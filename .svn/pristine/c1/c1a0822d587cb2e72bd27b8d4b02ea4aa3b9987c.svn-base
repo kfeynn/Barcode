@@ -1,0 +1,44 @@
+package com.barcode.ATS.model;
+
+import java.util.List;
+
+import com.barcode.app.model.RnBox;
+
+public class GoodsAddr {
+	/** 仓库编码 */
+	private List<String> WH_number_list;
+	/** 储位编码 */
+	private List<String> SP_number_list;
+	/** 上架物料列表 */
+	private List<RnBox> rnBoxList;
+	/** 优先级 */
+	private int priority;
+
+	public List<RnBox> getRnBoxList() {
+		return rnBoxList;
+	}
+	public void setRnBoxList(List<RnBox> rnBoxList) {
+		this.rnBoxList = rnBoxList;
+	}
+	public int getPriority() {
+		return priority;
+	}
+	public void setPriority(int priority) {
+		this.priority = priority;
+	}
+	public List<String> getWH_number_list() {
+		return WH_number_list;
+	}
+	public void setWH_number_list(List<String> wH_number_list) {
+		WH_number_list = wH_number_list;
+	}
+	public List<String> getSP_number_list() {
+		return SP_number_list;
+	}
+	public void setSP_number_list(List<String> sP_number_list) {
+		SP_number_list = sP_number_list;
+	}
+	
+	
+
+}

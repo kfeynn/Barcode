@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd">
+
+	<diskStore path="D:/cache"/><!-- 达到内存上限后缓存文件保存位置 -->
+	
+	<!-- 缓存最大个数，超出后缓存保存至文件 -->
+	<!-- 当达到maxElementsInMemory限制时，Ehcache将会根据指定的策略去清理内存。
+		默认策略是LRU（最近最少使用）。你可以设置为FIFO（先进先出）或是LFU（较少使用）。  -->
+	<!-- 对象是否永久有效，一但设置了，timeout将不起作用 -->
+	<!-- 设置对象在失效前的允许闲置时间（单位：秒），超出此时间未使用缓存自动清除 -->
+	<!-- 设置对象在失效前允许存活时间（单位：秒）。，缓存保留的最长时间 -->
+	<!-- 是否往硬盘写缓存数据 -->
+	<!-- 是否缓存虚拟机重启期数据 -->
+	<defaultCache 
+		maxElementsInMemory="10000" 
+		memoryStoreEvictionPolicy="LRU" 
+		eternal="false"  
+		timeToIdleSeconds="300" 
+		timeToLiveSeconds="1200" 
+		overflowToDisk="false" 
+		diskPersistent="false" />
+
+	<!-- 测试 -->
+	<cache 
+		name="session_cache"
+		memoryStoreEvictionPolicy="LRU" 
+		maxElementsInMemory="500" 
+		eternal="false"
+		timeToIdleSeconds="3600"
+		timeToLiveSeconds="7200" 
+		overflowToDisk="true"
+		diskPersistent="true" />
+</ehcache>

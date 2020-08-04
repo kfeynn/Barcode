@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.barcode.user.dao.UserMapper" >
+
+  <resultMap id="BaseResultMap" type="com.barcode.user.mapper.User" >
+    <id column="gen01" property="gen01" jdbcType="VARCHAR" />
+    <result column="gen02" property="gen02" jdbcType="VARCHAR" />
+    <result column="gen06" property="gen06" jdbcType="VARCHAR" />
+    <result column="gem03" property="gem03" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    gen01, gen02, gen06, gem03
+  </sql>
+  
+  <select id="findUser" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from gen_file, gem_file
+    where 
+    gen03 = gem01
+    <if test="gen01 != null">
+    	and gen01 = #{gen01,jdbcType=VARCHAR}
+    </if>
+  </select>
+</mapper>
